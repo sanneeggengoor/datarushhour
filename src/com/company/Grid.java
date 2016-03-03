@@ -37,4 +37,20 @@ public class Grid {
             }
         }
     }
+
+    public void addCar(Car car){
+        int x = car.getX();
+        int y = car.getY();
+        int id = car.getId();
+        int length = car.getLength();
+        if (car.getDirection()){
+            for(int i = 0; i< length; i++){
+                grid[x][y+i] =  id;
+            }
+        } else {
+            for(int i = 0; i< length; i++){
+                grid[x+i][y] = id;
+            }
+        }
+    }
 }

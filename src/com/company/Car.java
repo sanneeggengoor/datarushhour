@@ -4,15 +4,17 @@ package com.company;
  * Created by Sanne on 3-3-2016.
  */
 public class Car {
+    private int id;
     private boolean direction;
     private int x;
     private int y;
     private int length;
 
-    public Car(boolean direction, int x, int y, int length) {
+    public Car(boolean direction, int x, int y, int length, int id) {
         this.direction = direction;
         setX(x);
         setY(y);
+        this.id = id;
         this.length = length;
     }
 
@@ -26,6 +28,10 @@ public class Car {
 
     public int getY(){
         return y;
+    }
+
+    public int getId(){
+        return id;
     }
 
     public boolean getDirection(){
