@@ -92,15 +92,15 @@ public class Grid {
         Grid gridnew = gridold.gridCopy();
         if(car.getDirection()){
             int newY = car.getY() - 1;
-            if(newY > 0 && gridnew.grid[car.getX()][newY]==0){
-                gridnew.grid[car.getX()][car.getY() + car.getLength()] = 0;
+            if(newY >= 0 && gridnew.grid[car.getX()][newY]==0){
+                gridnew.grid[car.getX()][car.getY() + car.getLength() - 1] = 0;
                 gridnew.grid[car.getX()][newY] = car.getId();
                 car.setY(newY);
             }
         } else {
             int newX = car.getX() - 1;
-            if(newX > 0 && gridnew.grid[newX][car.getY()]==0){
-                gridnew.grid[car.getX() + car.getLength()][car.getY()] = 0;
+            if(newX >= 0 && gridnew.grid[newX][car.getY()]==0){
+                gridnew.grid[car.getX() + car.getLength() - 1][car.getY()] = 0;
                 gridnew.grid[newX][car.getY()] = car.getId();
                 car.setX(newX);
             }
