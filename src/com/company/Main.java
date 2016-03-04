@@ -3,7 +3,19 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
+        //parse args
+        int puzzlenum = 1;
+        new Main(puzzlenum).run();
+    }
 
+    private int puzzlenum;
+
+    public Main(int num) {
+        puzzlenum = num;
+    }
+
+    public void run() {
+        System.out.println(puzzlenum);
         Grid grid = new Grid(6,6);
         //grid.printGrid();
         Car car = new Car(true,2,3,2,1);
