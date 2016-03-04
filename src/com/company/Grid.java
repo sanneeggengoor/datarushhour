@@ -21,8 +21,22 @@ public class Grid {
         }
     }
 
-    public int[][] getGrid(){
-        return grid;
+    public Grid gridCopy() {
+        Grid gridnew = new Grid(rows, columns);
+        for(int i = 0; i < rows; i++){
+            for(int j = 0; j < columns; j++){
+                gridnew.grid[i][j] = this.grid[i][j];
+            }
+        }
+        return gridnew;
+    }
+
+    public int getRows(){
+        return rows;
+    }
+
+    public int getColumns(){
+        return columns;
     }
 
     public void printGrid(){
@@ -52,5 +66,45 @@ public class Grid {
                 grid[x+i][y] = id;
             }
         }
+    }
+
+    public Grid moveCarPlus(Car car, Grid gridold){
+        Grid gridnew = gridold.gridCopy();
+        if(car.getDirection()){
+            int newY = car.getY() + car.getLength();
+            if(newY < gridold.getRows() && gridnew.grid[car.getX()][newY]==0){
+                gridnew.grid[car.getX()][car.getY()] = 0;
+                gridnew.grid[car.getX()][newY] = car.getId();
+                car.setY(car.getY()+1);
+            }
+        } else {
+            int newX = car.getX() + car.getLength();
+            if(newX < gridold.getColumns() && gridnew.grid[newX][car.getY()]==0){
+                gridnew.grid[car.getX()][car.getY()] = 0;
+                gridnew.grid[newX][car.getY()] = car.getId();
+                car.setX(car.getX()+1);
+            }
+        }
+        return gridnew;
+    }
+
+    public Grid moveCarMin(Car car, Grid gridold){
+        Grid gridnew = gridold.gridCopy();
+        if(car.getDirection()){
+            int newY = car.getY() - 1;
+            if(newY > 0 && gridnew.grid[car.getX()][newY]==0){
+                gridnew.grid[car.getX()][car.getY() + car.getLength()] = 0;
+                gridnew.grid[car.getX()][newY] = car.getId();
+                car.setY(newY);
+            }
+        } else {
+            int newX = car.getX() - 1;
+            if(newX > 0 && gridnew.grid[newX][car.getY()]==0){
+                gridnew.grid[car.getX() + car.getLength()][car.getY()] = 0;
+                gridnew.grid[newX][car.getY()] = car.getId();
+                car.setX(newX);
+            }
+        }
+        return gridnew;
     }
 }
