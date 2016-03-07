@@ -67,7 +67,7 @@ public class Grid {
             }
         }
     }
-
+    //moves car one down or to the right
     public Grid moveCarPlus(Car car, Grid gridold){
         Grid gridnew = gridold.gridCopy();
         if(car.getDirection()){
@@ -87,7 +87,7 @@ public class Grid {
         }
         return gridnew;
     }
-
+    //moves car one up or to the left
     public Grid moveCarMin(Car car, Grid gridold){
         Grid gridnew = gridold.gridCopy();
         if(car.getDirection()){
