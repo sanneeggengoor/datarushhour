@@ -19,8 +19,12 @@ public class Main {
         //grid.printGrid();
         Car car = new Car(true,2,3,2,1);
         Car car2 = new Car(false, 1, 1, 3, 2);
+        Car car3 = new Car(true, 5,2, 3, 3);
+        Car car4 = new Car(false,4,1, 1,4);
         grid.addCar(car);
         grid.addCar(car2);
+        grid.addCar(car3);
+        grid.addCar(car4);
         grid.printGrid();
         Grid newGrid = grid.moveCarPlus(car,grid);
         System.out.println("hello");
