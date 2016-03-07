@@ -43,7 +43,7 @@ public class Grid {
         for (int i = 0; i< rows; i++){
             for (int j = 0; j < columns; j++){
                 System.out.print(grid[i][j]);
-                if (j != 5){
+                if (j != columns - 1){
                     System.out.print(" ");
                 } else {
                     System.out.println(" ");

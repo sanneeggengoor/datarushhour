@@ -7,7 +7,6 @@ public class Main {
         int puzzlenum = 1;
         new Main(puzzlenum).run();
     }
-
     private int puzzlenum;
 
     public Main(int num) {
