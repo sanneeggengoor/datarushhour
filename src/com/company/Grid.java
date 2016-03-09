@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.ArrayList;
+
 /**
  * Created hoihoi
  */
@@ -8,7 +10,7 @@ public class Grid {
     private int rows;
     private int columns;
     private int[][] grid;
-    private Search trial;
+    private Car[] cars;
 
 
     public Grid(int rows, int columns){
@@ -20,7 +22,7 @@ public class Grid {
                 grid[i][j] = 0;
             }
         }
-        //trial = new Search();
+        cars = new Car[20];
     }
 
     public Grid gridCopy() {
@@ -30,8 +32,17 @@ public class Grid {
                 gridnew.grid[i][j] = this.grid[i][j];
             }
         }
+        int i = 1;
+        while (this.cars[i]!=null){
+            gridnew.cars[i] = this.cars[i];
+            i++;
+        }
         return gridnew;
 
+    }
+
+    public Car[] getCars(){
+        return cars;
     }
 
     public int[][] getGrid(){
@@ -57,6 +68,11 @@ public class Grid {
                 }
             }
         }
+        int i = 1;
+        while (cars[i]!=null){
+            System.out.println(i);
+            i++;
+        }
     }
 
     public void addCar(Car car){
@@ -73,7 +89,7 @@ public class Grid {
                 grid[x+i][y] = id;
             }
         }
-       // trial.addCarList(car);
+        this.cars[id]=car;
     }
     //moves car one down or to the right
     public Grid moveCarPlus(Car car){
@@ -133,5 +149,18 @@ public class Grid {
     }
     public void makeAllChildren(Grid oldgrid){
 
+    }
+
+    public String toString(){
+        String gridstring = "";
+        int rows = this.getRows();
+        int columns = this.getColumns();
+        int[][] grid = this.getGrid();
+        for (int i = 0; i < rows; i++){
+            for (int j = 0; j < columns; j++){
+                gridstring = gridstring + grid[i][j];
+            }
+        }
+        return gridstring;
     }
 }
