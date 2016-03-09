@@ -8,6 +8,7 @@ public class Grid {
     private int rows;
     private int columns;
     private int[][] grid;
+    private Search trial;
 
 
     public Grid(int rows, int columns){
@@ -19,6 +20,7 @@ public class Grid {
                 grid[i][j] = 0;
             }
         }
+        trial = new Search();
     }
 
     public Grid gridCopy() {
@@ -29,6 +31,11 @@ public class Grid {
             }
         }
         return gridnew;
+        
+    }
+
+    public int[][] getGrid(){
+        return grid;
     }
 
     public int getRows(){
@@ -66,20 +73,21 @@ public class Grid {
                 grid[x+i][y] = id;
             }
         }
+        trial.addCarList(car);
     }
     //moves car one down or to the right
-    public Grid moveCarPlus(Car car, Grid gridold){
-        Grid gridnew = gridold.gridCopy();
+    public Grid moveCarPlus(Car car){
+        Grid gridnew = this.gridCopy();
         if(car.getDirection()){
             int newY = car.getY() + car.getLength();
-            if(newY < gridold.getRows() && gridnew.grid[car.getX()][newY]==0){
+            if(newY < this.getRows() && gridnew.grid[car.getX()][newY]==0){
                 gridnew.grid[car.getX()][car.getY()] = 0;
                 gridnew.grid[car.getX()][newY] = car.getId();
                 car.setY(car.getY()+1);
             }
         } else {
             int newX = car.getX() + car.getLength();
-            if(newX < gridold.getColumns() && gridnew.grid[newX][car.getY()]==0){
+            if(newX < this.getColumns() && gridnew.grid[newX][car.getY()]==0){
                 gridnew.grid[car.getX()][car.getY()] = 0;
                 gridnew.grid[newX][car.getY()] = car.getId();
                 car.setX(car.getX()+1);
@@ -88,8 +96,8 @@ public class Grid {
         return gridnew;
     }
     //moves car one up or to the left
-    public Grid moveCarMin(Car car, Grid gridold){
-        Grid gridnew = gridold.gridCopy();
+    public Grid moveCarMin(Car car){
+        Grid gridnew = this.gridCopy();
         if(car.getDirection()){
             int newY = car.getY() - 1;
             if(newY >= 0 && gridnew.grid[car.getX()][newY]==0){
@@ -106,5 +114,24 @@ public class Grid {
             }
         }
         return gridnew;
+    }
+
+    public boolean equals(Grid grid1){
+        int[][] gridtwo = this.getGrid();
+        int[][] gridone = grid1.getGrid();
+        int rows = this.getRows();
+        int columns = this.getColumns();
+        for (int i = 0; i < rows; i++){
+            for (int j = 0; j < columns; j++){
+                if (gridone[i][j]!=gridtwo[i][j]){
+                    return false;
+                }
+            }
+        }
+        return true;
+
+    }
+    public void makeAllChildren(Grid oldgrid){
+
     }
 }
