@@ -8,7 +8,7 @@ public class Grid {
     private int rows;
     private int columns;
     private int[][] grid;
-    private String path;
+    private String path = "";
 
 
     public Grid(int rows, int columns){
@@ -75,9 +75,11 @@ public class Grid {
         }
        // trial.addCarList(car);
     }
-    //moves car one down or to the right
+    //moves car one down or one to the right
     public Grid moveCarPlus(Car car){
         Grid gridnew = this.gridCopy();
+        int id = car.getId();
+        String plus = id + "+";
         if(car.getDirection()){
             int newY = car.getY() + car.getLength();
             if(newY < this.getRows() && gridnew.grid[car.getX()][newY]==0){
@@ -93,11 +95,15 @@ public class Grid {
                 car.setX(car.getX()+1);
             }
         }
+        path = path.concat(plus);
         return gridnew;
+
     }
-    //moves car one up or to the left
+    //moves car one up or one to the left
     public Grid moveCarMin(Car car){
         Grid gridnew = this.gridCopy();
+        int id = car.getId();
+        String min = id + "-";
         if(car.getDirection()){
             int newY = car.getY() - 1;
             if(newY >= 0 && gridnew.grid[car.getX()][newY]==0){
@@ -113,7 +119,9 @@ public class Grid {
                 car.setX(newX);
             }
         }
+        path = path.concat(min);
         return gridnew;
+
     }
 
     public boolean equals(Grid grid1){
