@@ -20,7 +20,7 @@ public class Grid {
                 grid[i][j] = 0;
             }
         }
-        trial = new Search();
+        //trial = new Search();
     }
 
     public Grid gridCopy() {
@@ -31,7 +31,7 @@ public class Grid {
             }
         }
         return gridnew;
-        
+
     }
 
     public int[][] getGrid(){
@@ -73,7 +73,7 @@ public class Grid {
                 grid[x+i][y] = id;
             }
         }
-        trial.addCarList(car);
+       // trial.addCarList(car);
     }
     //moves car one down or to the right
     public Grid moveCarPlus(Car car){

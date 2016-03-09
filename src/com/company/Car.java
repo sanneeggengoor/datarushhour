@@ -4,7 +4,7 @@ package com.company;
  * Created by Sanne on 3-3-2016.
  */
 public class Car {
-    private int id;
+    public int id;
     private boolean direction;
     private int x;
     private int y;
@@ -33,6 +33,10 @@ public class Car {
     public int getId(){
         return id;
     }
+
+   // public Car getCar(int id){
+
+   // }
 
     public boolean getDirection(){
         return direction;

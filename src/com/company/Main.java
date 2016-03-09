@@ -1,5 +1,9 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Hashtable;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -8,6 +12,8 @@ public class Main {
         new Main(puzzlenum).run();
     }
     private int puzzlenum;
+    public Search trial;
+
 
     public Main(int num) {
         puzzlenum = num;
@@ -15,6 +21,7 @@ public class Main {
 
     public void run() {
         System.out.println(puzzlenum);
+        //trial = new Search();
         Grid grid = new Grid(6,6);
         //grid.printGrid();
         Car car = new Car(true,2,3,2,1);
@@ -26,14 +33,16 @@ public class Main {
         grid.addCar(car3);
         grid.addCar(car4);
         grid.printGrid();
-        Grid newGrid = grid.moveCarPlus(car,grid);
+        Grid newGrid = grid.moveCarPlus(car);
         System.out.println("hello");
         newGrid.printGrid();
-        Grid newGrid2 = newGrid.moveCarMin(car2,newGrid);
+        Grid newGrid2 = newGrid.moveCarMin(car2);
         System.out.println("hello again");
         newGrid2.printGrid();
     }
 
-
-
+    public ArrayList<Integer> createCarList(){
+        ArrayList<Integer> carList = new ArrayList<>(20);
+        return carList;
+    }
 }

@@ -13,6 +13,13 @@ public class Search {
     }
 
     public void addCarList(Car car4list){
+        int id = car4list.getId();
+        carList.add(id,car4list);
+    }
 
+    public void changeCarList(Car car4list){
+        int id = car4list.getId();
+        carList.remove(id);
+        carList.add(id, car4list);
     }
 }
