@@ -1,8 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Hashtable;
+
 
 public class Main {
 
@@ -29,6 +28,7 @@ public class Main {
         Car car3 = new Car(true, 5,2, 3, 3);
         Car car4 = new Car(false,4,1, 1,4);
         grid.addCar(car);
+
         grid.addCar(car2);
         grid.addCar(car3);
         grid.addCar(car4);
@@ -39,6 +39,8 @@ public class Main {
         Grid newGrid2 = newGrid.moveCarMin(car2);
         System.out.println("hello again");
         newGrid2.printGrid();
+
+        //while (true)
     }
 
     public ArrayList<Integer> createCarList(){
