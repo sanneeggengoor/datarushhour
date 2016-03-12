@@ -1,6 +1,5 @@
 package com.company;
 
-import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.LinkedList;
 
@@ -35,24 +34,33 @@ public class Search {
 
     public void makeAllChildren() {
         Grid old = getNode();
+
+
         int i = 1;
         Car[] cars = old.getCars();
         while (cars[i] != null) {
-            Grid plus = old.moveCarPlus(cars[i]);
-            if (!old.equals(plus) && !checkState(plus)) {
-                addNode(plus);
-                addState(plus);
-                System.out.println(i+"plus");
-                plus.printGrid();
-            }
-            Grid min = old.moveCarMin(cars[i]);
-            if (!old.equals(min) && !checkState(min)) {
-                addNode(min);
-                addState(plus);
-                System.out.println(i+"min");
-                min.printGrid();
-            }
+            Grid oldCopy = old.gridCopy();
+            makeChildrencar(oldCopy, cars[i]);
             i++;
+        }
+    }
+
+    private void makeChildrencar(Grid old, Car car){
+        Grid oldplus = old.gridCopy();
+        Grid oldmin = old.gridCopy();
+        Grid plus = oldplus.moveCarPlus(car);
+        if (!oldplus.equals(plus) && !checkState(plus)) {
+            addNode(plus);
+            addState(plus);
+            System.out.println(car.getId()+"plus");
+            plus.printGrid();
+        }
+        Grid min = oldmin.moveCarMin(car);
+        if (!oldmin.equals(min) && !checkState(min)) {
+            addNode(min);
+            addState(min);
+            System.out.println(car.getId()+"min");
+            min.printGrid();
         }
     }
 

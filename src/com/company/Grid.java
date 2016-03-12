@@ -98,46 +98,49 @@ public class Grid {
     }
     //moves car one down or to the right
     public Grid moveCarPlus(Car car){
+        int id = car.getId();
         Grid gridnew = this.gridCopy();
-        if(car.getDirection()){
-            int newY = car.getY() + car.getLength();
-            if(newY < this.getRows() && gridnew.grid[car.getX()][newY]==0){
-                gridnew.grid[car.getX()][car.getY()] = 0;
-                gridnew.grid[car.getX()][newY] = car.getId();
-                car.setY(car.getY()+1);
+        Car newcar = gridnew.cars[id];
+        if(newcar.getDirection()){
+            int newY = newcar.getY() + newcar.getLength();
+            if(newY < this.getRows() && gridnew.grid[newcar.getX()][newY]==0){
+                gridnew.grid[newcar.getX()][newcar.getY()] = 0;
+                gridnew.grid[newcar.getX()][newY] = newcar.getId();
+                newcar.setY(newcar.getY()+1);
             }
         } else {
-            int newX = car.getX() + car.getLength();
-            if(newX < this.getColumns() && gridnew.grid[newX][car.getY()]==0){
-                gridnew.grid[car.getX()][car.getY()] = 0;
-                gridnew.grid[newX][car.getY()] = car.getId();
-                car.setX(car.getX()+1);
+            int newX = newcar.getX() + newcar.getLength();
+            if(newX < this.getColumns() && gridnew.grid[newX][newcar.getY()]==0){
+                gridnew.grid[newcar.getX()][newcar.getY()] = 0;
+                gridnew.grid[newX][newcar.getY()] = newcar.getId();
+                newcar.setX(newcar.getX()+1);
             }
         }
-        int id = car.getId();
-        gridnew.cars[id] = car;
+        gridnew.cars[id] = newcar;
         return gridnew;
     }
     //moves car one up or to the left
     public Grid moveCarMin(Car car){
+        int id = car.getId();
         Grid gridnew = this.gridCopy();
-        if(car.getDirection()){
-            int newY = car.getY() - 1;
-            if(newY >= 0 && gridnew.grid[car.getX()][newY]==0){
-                gridnew.grid[car.getX()][car.getY() + car.getLength() - 1] = 0;
-                gridnew.grid[car.getX()][newY] = car.getId();
-                car.setY(newY);
+        Car newcar = gridnew.cars[id];
+        if(newcar.getDirection()){
+            int newY = newcar.getY() - 1;
+            if(newY >= 0 && gridnew.grid[newcar.getX()][newY]==0){
+                gridnew.grid[newcar.getX()][newcar.getY() + newcar.getLength() - 1] = 0;
+                gridnew.grid[newcar.getX()][newY] = newcar.getId();
+                newcar.setY(newY);
             }
         } else  {
-            int newX = car.getX() - 1;
-            if(newX >= 0 && gridnew.grid[newX][car.getY()]==0){
-                gridnew.grid[car.getX() + car.getLength() - 1][car.getY()] = 0;
-                gridnew.grid[newX][car.getY()] = car.getId();
-                car.setX(newX);
+            int newX = newcar.getX() - 1;
+            if(newX >= 0 && gridnew.grid[newX][newcar.getY()]==0){
+                gridnew.grid[newcar.getX() + newcar.getLength() - 1][newcar.getY()] = 0;
+                gridnew.grid[newX][newcar.getY()] = newcar.getId();
+                newcar.setX(newX);
             }
         }
-        int id = car.getId();
-        gridnew.cars[id] = car;
+
+        gridnew.cars[id] = newcar;
         return gridnew;
     }
 

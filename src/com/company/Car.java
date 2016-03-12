@@ -10,6 +10,7 @@ public class Car {
     private int y;
     private int length;
 
+
     public Car(boolean direction, int x, int y, int length, int id) {
         this.direction = direction;
         setX(x);
