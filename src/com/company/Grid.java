@@ -27,6 +27,8 @@ public class Grid {
 
     public Grid gridCopy() {
         Grid gridnew = new Grid(rows, columns);
+        gridnew.rows = this.rows;
+        gridnew.columns = this.columns;
         for(int i = 0; i < rows; i++){
             for(int j = 0; j < columns; j++){
                 gridnew.grid[i][j] = this.grid[i][j];
@@ -34,7 +36,9 @@ public class Grid {
         }
         int i = 1;
         while (this.cars[i]!=null){
-            gridnew.cars[i] = this.cars[i];
+            Car car = this.cars[i];
+            Car newcar = car.copyCar();
+            gridnew.cars[i] = newcar;
             i++;
         }
         return gridnew;
@@ -68,11 +72,12 @@ public class Grid {
                 }
             }
         }
-        int i = 1;
+        //int i = 1;
+        /*
         while (cars[i]!=null){
             System.out.println(i);
             i++;
-        }
+        }*/
     }
 
     public void addCar(Car car){
@@ -109,6 +114,8 @@ public class Grid {
                 car.setX(car.getX()+1);
             }
         }
+        int id = car.getId();
+        gridnew.cars[id] = car;
         return gridnew;
     }
     //moves car one up or to the left
@@ -121,7 +128,7 @@ public class Grid {
                 gridnew.grid[car.getX()][newY] = car.getId();
                 car.setY(newY);
             }
-        } else {
+        } else  {
             int newX = car.getX() - 1;
             if(newX >= 0 && gridnew.grid[newX][car.getY()]==0){
                 gridnew.grid[car.getX() + car.getLength() - 1][car.getY()] = 0;
@@ -129,6 +136,8 @@ public class Grid {
                 car.setX(newX);
             }
         }
+        int id = car.getId();
+        gridnew.cars[id] = car;
         return gridnew;
     }
 

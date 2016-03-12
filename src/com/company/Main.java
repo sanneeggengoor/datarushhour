@@ -41,10 +41,14 @@ public class Main {
         grid.addCar(car8);
         grid.addCar(car9);
         grid.printGrid();
+
         trial.addNode(grid);
+
+
 
         while (true){
             trial.makeAllChildren();
+            System.out.println("Kids gemaakt");
             if (trial.checkIfOK()){
                 break;
             }
@@ -52,8 +56,4 @@ public class Main {
 
     }
 
-    public ArrayList<Integer> createCarList(){
-        ArrayList<Integer> carList = new ArrayList<>(20);
-        return carList;
-    }
 }

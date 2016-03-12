@@ -18,6 +18,16 @@ public class Car {
         this.length = length;
     }
 
+    public Car copyCar(){
+        boolean directionn = this.direction;
+        int xn = this.getX();
+        int yn = this.getY();
+        int idn = this.getId();
+        int lengthn = this.getLength();
+        Car newcar = new Car(directionn, xn, yn, lengthn, idn);
+        return newcar;
+    }
+
     public int getLength(){
         return length;
     }
