@@ -1,6 +1,5 @@
 package com.company;
 
-import java.util.ArrayList;
 
 
 public class Main {
@@ -53,8 +52,14 @@ public class Main {
             }
 
             trial.makeAllChildren();
-            System.out.println("Kids gemaakt");
+            //System.out.println("Kids gemaakt");
         }
+
+        Grid good = trial.getNode();
+        System.out.println("hoi");
+        System.out.println(good.getPath());
+        System.out.println(good.getCount());
+        good.printGrid();
 
     }
 
