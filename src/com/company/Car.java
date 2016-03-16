@@ -1,7 +1,7 @@
 package com.company;
 
 /**
- * Class that contains a car. 
+ * Class that contains a car.
  */
 public class Car {
     public int id;
