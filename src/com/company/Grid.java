@@ -13,6 +13,7 @@ public class Grid {
     private Car[] cars;
 
 
+
     public Grid(int rows, int columns){
         this.rows = rows;
         this.columns = columns;
