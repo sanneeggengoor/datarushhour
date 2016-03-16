@@ -10,12 +10,23 @@ public class Car {
     private int y;
     private int length;
 
+
     public Car(boolean direction, int x, int y, int length, int id) {
         this.direction = direction;
         setX(x);
         setY(y);
         this.id = id;
         this.length = length;
+    }
+
+    public Car copyCar(){
+        boolean directionn = this.direction;
+        int xn = this.getX();
+        int yn = this.getY();
+        int idn = this.getId();
+        int lengthn = this.getLength();
+        Car newcar = new Car(directionn, xn, yn, lengthn, idn);
+        return newcar;
     }
 
     public int getLength(){
