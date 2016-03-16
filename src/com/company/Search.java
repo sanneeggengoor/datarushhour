@@ -3,9 +3,7 @@ package com.company;
 import java.util.Hashtable;
 import java.util.LinkedList;
 
-/**
- * Created by Sanne on 9-3-2016.
- */
+
 public class Search {
     Hashtable<String, Grid> stateList;
     LinkedList<Grid> breadthFirst;

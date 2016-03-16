@@ -40,6 +40,63 @@ public class Grid {
         return previous;
     }
 
+    public Grid makeFirstGrid(){
+        Grid grid = new Grid(6,6);
+        Car car = new Car(true,2,3,2,1);
+        Car car2 = new Car(false, 4, 0, 2, 2);
+        Car car3 = new Car(false, 3, 5, 2, 3);
+        Car car4 = new Car(false,3,3, 3,4);
+        Car car5 = new Car(false,0,2,3,5);
+        Car car6 = new Car(true, 0,3,2,6);
+        Car car7 = new Car(false, 0, 5, 3, 7);
+        Car car8 = new Car(true, 3, 4, 2, 8);
+        Car car9 = new Car(true, 5, 4, 2, 9);
+        grid.addCar(car);
+        grid.addCar(car2);
+        grid.addCar(car3);
+        grid.addCar(car7);
+        grid.addCar(car5);
+        grid.addCar(car6);
+        grid.addCar(car4);
+        grid.addCar(car8);
+        grid.addCar(car9);
+        grid.printGrid();
+
+        return grid;
+    }
+
+    public Grid makeSecGrid(){
+        Grid grid = new Grid(6,6);
+        Car car = new Car(true,2,2,2,1);
+        Car car2 = new Car(false, 4, 0, 2, 2);
+        Car car3 = new Car(true, 3, 0, 2, 3);
+        Car car4 = new Car(true,0,2, 2,4);
+        Car car5 = new Car(true,0,1,2,5);
+        Car car6 = new Car(true, 1,3,2,6);
+        Car car7 = new Car(true, 3, 2, 2, 7);
+        Car car8 = new Car(false, 4, 3, 2, 8);
+        Car car9 = new Car(true, 5, 4, 2, 9);
+        Car car10 = new Car(true, 4, 4, 2, 10);
+        Car car11 = new Car(false, 2, 4, 2, 11);
+        Car car12 = new Car(false, 1, 5, 3, 12);
+        Car car13 = new Car(true, 0, 5, 2, 13);
+        grid.addCar(car);
+        grid.addCar(car2);
+        grid.addCar(car3);
+        grid.addCar(car7);
+        grid.addCar(car5);
+        grid.addCar(car6);
+        grid.addCar(car4);
+        grid.addCar(car8);
+        grid.addCar(car9);
+        grid.addCar(car10);
+        grid.addCar(car11);
+        grid.addCar(car12);
+        grid.addCar(car13);
+        grid.printGrid();
+
+        return grid;
+    }
     /** Returns a copy of a grid, by creating a new grid and copying the information in a loop */
     public Grid gridCopy() {
         Grid gridnew = new Grid(rows, columns);
@@ -76,7 +133,7 @@ public class Grid {
     }
 
     private void setGrid(Grid grid){
-        grid.previous = this.previous;
+        grid.previous = this;
     }
 
     public int getCount(){
