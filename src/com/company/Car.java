@@ -1,7 +1,7 @@
 package com.company;
 
 /**
- * Created by Sanne on 3-3-2016.
+ * Class that contains a car. 
  */
 public class Car {
     public int id;
