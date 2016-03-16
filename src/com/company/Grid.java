@@ -17,6 +17,9 @@ public class Grid {
     private int columns;
     private int[][] grid;
     private Car[] cars;
+    private Grid previous;
+    private String path;
+    private int count;
 
     /** Creates new Grid with rows rows and columns columns*/
     public Grid(int rows, int columns){
@@ -29,6 +32,12 @@ public class Grid {
             }
         }
         cars = new Car[20];
+        this.path = "";
+        this.count = 0;
+    }
+
+    public Grid getPrevious(){
+        return previous;
     }
 
     /** Returns a copy of a grid, by creating a new grid and copying the information in a loop */
@@ -50,10 +59,32 @@ public class Grid {
             gridnew.cars[i] = newcar;
             i++;
         }
+        gridnew.count = this.count;
+        gridnew.path = this.path;
+        setGrid(gridnew);
         return gridnew;
+
 
     }
 
+    public String getPath(){
+        return path;
+    }
+
+    public void addPath(String move){
+        this.path = this.path + move;
+    }
+
+    private void setGrid(Grid grid){
+        grid.previous = this.previous;
+    }
+
+    public int getCount(){
+        return count;
+    }
+    public void addCount(){
+        count++;
+    }
     public Car[] getCars(){
         return cars;
     }
