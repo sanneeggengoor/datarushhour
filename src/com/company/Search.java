@@ -52,15 +52,19 @@ public class Search {
         if (!oldplus.equals(plus) && !checkState(plus)) {
             addNode(plus);
             addState(plus);
-            System.out.println(car.getId()+"plus");
-            plus.printGrid();
+            plus.addPath(Integer.toString(car.getId()) +"plus " );
+            //System.out.println(car.getId()+"plus");
+            plus.addCount();
+            //plus.printGrid();
         }
         Grid min = oldmin.moveCarMin(car);
         if (!oldmin.equals(min) && !checkState(min)) {
             addNode(min);
             addState(min);
-            System.out.println(car.getId()+"min");
-            min.printGrid();
+            min.addPath(Integer.toString(car.getId()) + "min ");
+            //System.out.println(car.getId()+"min");
+            min.addCount();
+            //min.printGrid();
         }
     }
 

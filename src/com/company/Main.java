@@ -60,6 +60,15 @@ public class Main {
         System.out.println(good.getPath());
         System.out.println(good.getCount());
         good.printGrid();
+        while(true){
+            good = good.getPrevious();
+            if (good == null){
+                break;
+            }
+            System.out.println(good.getCount());
+            good.printGrid();
+
+        }
 
     }
 
