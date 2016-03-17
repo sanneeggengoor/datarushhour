@@ -11,6 +11,7 @@ public class Car {
     private int length;
 
 
+    // Every car contains a direction, x, y, identity and length
     public Car(boolean direction, int x, int y, int length, int id) {
         this.direction = direction;
         setX(x);
@@ -19,6 +20,7 @@ public class Car {
         this.length = length;
     }
 
+    // Cars a
     public Car copyCar(){
         boolean directionn = this.direction;
         int xn = this.getX();
