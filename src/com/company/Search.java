@@ -7,7 +7,7 @@ import java.util.LinkedList;
  * Class for searching breadthfirst through a rush hour game for the best solution.
  * For the search a LinkedList is used because then the first element can easily
  * be removed and the elements can easily be added at the back of the list. This is
- * what is needed for the breadthfirst search.
+ * what is needed for the breadth first search.
  */
 
 public class Search {
