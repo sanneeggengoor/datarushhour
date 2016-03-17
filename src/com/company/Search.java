@@ -4,11 +4,14 @@ import java.util.Hashtable;
 import java.util.LinkedList;
 
 /**
- * Class for searching breadthfirst through a rush hour game for the best solution
+ * Class for searching breadthfirst through a rush hour game for the best solution.
+ * For the search a LinkedList is used because then the first element can easily
+ * be removed and the elements can easily be added at the back of the list. This is
+ * what is needed for the breadthfirst search.
  */
 
 public class Search {
-    // the searchclass has a hashtable with all the grids and a linkedlist queu for searching
+    // the search class has a HashTable with all the grids and a LinkedList queu for searching
     Hashtable<String, Grid> stateList;
     LinkedList<Grid> breadthFirst;
 
@@ -33,7 +36,10 @@ public class Search {
 
         // if the 1 car is at 2,4, it is positioned in front of the exit,
         // so return true
-        if (x == 2 && y == 4) {
+        if (grid.getRows() == 6 && x == 2 && y == 4) {
+            grid.printGrid();
+            return true;
+        } else if (grid.getRows() == 9 && x == 3 && y == 7){
             grid.printGrid();
             return true;
         }
@@ -129,8 +135,13 @@ public class Search {
         return false;
     }
 
+    // does the actual search, printing the path included
     public void findSolution(){
+        // remember time before beginning
         long timeTrialBefore = System.nanoTime();
+
+        // keeps replacing the first node by all it's children
+        // while the grid doesn't match a winning grid
         while (true){
             if (checkIfOK()){
                 break;
@@ -138,14 +149,21 @@ public class Search {
 
             makeAllChildren();
         }
+
+        // get time after search
         long timeTrialAfter = System.nanoTime();
 
+        // get the first node (the winning grid)
         Grid good = getNode();
-        System.out.println(good.getPath());
-        System.out.println(good.getCount());
+
+        // print the grid and the animated path
         good.printGrid();
         good.printPath();
+
+        // compute time that was needed to find solution
         long time1 = (timeTrialAfter - timeTrialBefore)/1000000;
+
+        // print all interesting information
         System.out.println("Path: "+good.getPath());
         System.out.println("Number of necessary steps: " + Integer.toString(good.getCount()));
         System.out.println("Time (in milliseconds): " + Long.toString(time1));
