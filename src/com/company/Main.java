@@ -17,11 +17,12 @@ public class Main {
     public Search trial5;
 
 
-    public Main(int num) {
+    public Main(int num){
         puzzlenum = num;
     }
 
     public void run() {
+        
         System.out.println(puzzlenum);
 
         // create 5 trials (for the 5 grids)
