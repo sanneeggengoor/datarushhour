@@ -24,15 +24,12 @@ public class Main {
         trial2 = new Search();
         Grid grid = new Grid(6,6);
 
-        Grid grid1 = grid.makeFirstGrid();
-        System.out.println("1");
-        grid1.printGrid();
-        System.out.println("1");
-
-        trial.addNode(grid1);
+        trial.addNode(grid.makeFirstGrid());
+        trial.findSolution();
         trial2.addNode(grid.makeSecGrid());
-
-
+        trial2.findSolution();
+/**
+        long timeTrial1Before = System.nanoTime();
         while (true){
             if (trial.checkIfOK()){
                 break;
@@ -40,13 +37,20 @@ public class Main {
 
             trial.makeAllChildren();
         }
+        long timeTrial1After = System.nanoTime();
 
         Grid good = trial.getNode();
         System.out.println(good.getPath());
         System.out.println(good.getCount());
         good.printGrid();
         good.printPath();
+        long time1 = (timeTrial1After - timeTrial1Before)/1000000;
+        System.out.println("Path: "+good.getPath());
+        System.out.println("Number of necessary steps: " + Integer.toString(good.getCount()));
+        System.out.println("Time (in milliseconds): " + Long.toString(time1));
 
+
+        long timeTrial2Before = System.nanoTime();
         while (true){
             if (trial2.checkIfOK()){
                 break;
@@ -54,7 +58,17 @@ public class Main {
 
             trial2.makeAllChildren();
         }
+        long timeTrial2After = System.nanoTime();
         Grid good2 = trial2.getNode();
+        System.out.println(good2.getPath());
+        System.out.println(good2.getCount());
+        good2.printGrid();
+        good2.printPath();
+        long time2 = (timeTrial2After - timeTrial2Before)/1000000;
+        System.out.println("Path: "+good2.getPath());
+        System.out.println("Number of necessary steps: " + Integer.toString(good2.getCount()));
+        System.out.println("Time (in milliseconds): " + Long.toString(time2));
+ */
 
     }
 
