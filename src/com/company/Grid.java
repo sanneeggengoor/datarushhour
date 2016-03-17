@@ -14,7 +14,7 @@ package com.company;
 public class Grid {
 
     // maximum number of cars in a grid
-    private static final int MAXCAR = 20;
+    private static final int MAXCAR = 25;
 
     // all values stored in the grid
     private int rows;
@@ -181,8 +181,57 @@ public class Grid {
         grid.printGrid();
 
         return grid;
+    }
 
+    public Grid makeFourthGrid(){
 
+        Grid grid = new Grid(9,9);
+        Car car = new Car(true,4,1,2,1);
+        Car car2 = new Car(false, 7, 0, 2, 2);
+        Car car3 = new Car(true, 6, 0, 2, 3);
+        Car car4 = new Car(false,4,0, 2,4);
+        Car car5 = new Car(true,3,0,2,5);
+        Car car6 = new Car(false, 0,0,2,6);
+        Car car7 = new Car(true, 0, 1, 3, 7);
+        Car car8 = new Car(false, 1, 3, 3, 8);
+        Car car9 = new Car(false, 4, 3, 2, 9);
+        Car car10 = new Car(false, 6, 3, 2, 10);
+        Car car11 = new Car(true, 8, 1, 3, 11);
+        Car car12 = new Car(false, 7, 4, 2, 12);
+        Car car13 = new Car(true, 6, 4, 2, 13);
+        Car car14 = new Car(true, 5, 5, 3, 14);
+        Car car15 = new Car(true, 3, 5, 3, 15);
+        Car car16 = new Car(false, 0, 5, 3, 16);
+        Car car17 = new Car(true, 1, 6, 3, 17);
+        Car car18 = new Car(false, 2, 8, 3, 18);
+        Car car19 = new Car(false, 5, 8, 3, 19);
+        Car car20 = new Car(true, 8, 7, 2, 20);
+        Car car21 = new Car(true, 8, 5, 2, 21);
+
+        grid.addCar(car);
+        grid.addCar(car2);
+        grid.addCar(car3);
+        grid.addCar(car7);
+        grid.addCar(car5);
+        grid.addCar(car6);
+        grid.addCar(car4);
+        grid.addCar(car8);
+        grid.addCar(car9);
+        grid.addCar(car10);
+        grid.addCar(car11);
+        grid.addCar(car12);
+        grid.addCar(car13);
+        grid.addCar(car14);
+        grid.addCar(car15);
+        grid.addCar(car16);
+        grid.addCar(car17);
+        grid.addCar(car18);
+        grid.addCar(car19);
+        grid.addCar(car20);
+        grid.addCar(car21);
+        grid.printGrid();
+
+        return grid;
     }
 
     // Returns a copy of a grid, by creating a new grid and copying the information in a loop
