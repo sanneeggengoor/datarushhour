@@ -33,9 +33,9 @@ public class Main {
         trial3.addNode(grid.makeThirdGrid());
         trial4.addNode(grid.makeFourthGrid());
 
-        //trial.findSolution();
-        //trial2.findSolution();
-        //trial3.findSolution();
+        trial.findSolution();
+        trial2.findSolution();
+        trial3.findSolution();
         trial4.findSolution();
 
 
