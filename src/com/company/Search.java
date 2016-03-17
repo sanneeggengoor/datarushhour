@@ -1,6 +1,6 @@
 package com.company;
 
-import java.util.Hashtable;
+import java.util.HashSet;
 import java.util.LinkedList;
 
 /**
@@ -12,11 +12,11 @@ import java.util.LinkedList;
 
 public class Search {
     // the search class has a HashTable with all the grids and a LinkedList queu for searching
-    Hashtable<String, Grid> stateList;
+    HashSet<String> stateList;
     LinkedList<Grid> breadthFirst;
 
     public Search() {
-        stateList = new Hashtable<>();
+        stateList = new HashSet<>();
         breadthFirst = new LinkedList<>();
     }
 
@@ -58,7 +58,7 @@ public class Search {
         while (cars[i] != null) {
             // copy the grid and make all children with that car and that grid
             // Grid oldCopy = old.gridCopy();
-            makeChildrencar(old, cars[i]);
+            makeChildrenCar(old, cars[i]);
 
             // increase counter
             i++;
@@ -66,7 +66,7 @@ public class Search {
     }
 
     // creates grids with the car moved in both direction
-    private void makeChildrencar(Grid old, Car car){
+    private void makeChildrenCar(Grid old, Car car){
 
         // get two copies for creating children
         Grid oldPlus = old.gridCopy();
@@ -118,13 +118,13 @@ public class Search {
 
     // add the grid to the hashtable
     public void addState(Grid grid) {
-        stateList.put(grid.toString(), grid);
+        stateList.add(grid.toString());
     }
 
     // check if a grid is already present in the hashtable (the key is unique
     // for the grid)
     public boolean checkState(Grid grid) {
-        if (stateList.containsKey(grid.toString())) {
+        if (stateList.contains(grid.toString())) {
             return true;
         }
         return false;
