@@ -315,11 +315,15 @@ public class Grid {
         int rows = this.getRows();
         int columns = this.getColumns();
         int[][] grid = this.getGrid();
+
+        // loop through the grid and add every value to the gridstring
         for (int i = 0; i < rows; i++){
             for (int j = 0; j < columns; j++){
                 gridstring = gridstring + grid[i][j];
             }
         }
+
+        // return the gridstring
         return gridstring;
     }
 }

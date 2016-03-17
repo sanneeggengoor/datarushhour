@@ -5,13 +5,10 @@ import java.util.LinkedList;
 
 /**
  * Class for searching breadthfirst through a rush hour game for the best solution.
- * For the search a LinkedList is used because then the first element can easily
- * be removed and the elements can easily be added at the back of the list. This is
- * what is needed for the breadthfirst search.
  */
 
 public class Search {
-    // the search class has a HashTable with all the grids and a LinkedList queu for searching
+    // the search class has a HashSets with all the grids and a LinkedList queu for searching
     HashSet<String> stateList;
     LinkedList<Grid> breadthFirst;
 
@@ -20,20 +17,21 @@ public class Search {
         breadthFirst = new LinkedList<>();
     }
 
-    // checks if a state has already been used while searching
+    // checks if a state is the solution
     public boolean checkIfOK() {
-        // peeks into the upperstate of the search list
+
+        // peeks into the first state of the search list
         LinkedList<Grid> node = getSearchList();
         Grid grid = node.peek();
 
         // gets the list with all the cars
         Car[] cars = grid.getCars();
 
-        // gets the position of the 1 car (the red one)
+        // gets the position of the first car (the red one)
         Car car = cars[1];
         int y = car.getY();
 
-        // if the 1 car has y coordinate 1 place in front of the end, the solution is found
+        // if the first car has the y coordinate 1 place in front of the end, the solution is found
         if (y == grid.getColumns() - 2) {
             grid.printGrid();
             return true;
@@ -56,8 +54,8 @@ public class Search {
 
         // while there is a car available, make children
         while (cars[i] != null) {
-            // copy the grid and make all children with that car and that grid
-            // Grid oldCopy = old.gridCopy();
+
+            // create and the children grids with car i to the queu
             makeChildrenCar(old, cars[i]);
 
             // increase counter
@@ -65,25 +63,27 @@ public class Search {
         }
     }
 
-    // creates grids with the car moved in both direction
+    // creates grids with the car moved in both direction if posibble and
+    // not seen before
     private void makeChildrenCar(Grid old, Car car){
 
-        // get two copies for creating children
+        // get two copies for creating children, so the original won't be effected
         Grid oldPlus = old.gridCopy();
         Grid oldMin = old.gridCopy();
 
         // move the car in the plus direction
         Grid plus = oldPlus.moveCarPlus(car);
 
-        // if this grid isn't equal to the previous and hasn't been seen before
-        // add grid to searchqueu, hashtable and increase counter and path
+        // if this grid isn't equal to the previous (quicker to check than the hashtable)
+        // and hasn't been seen before add grid to searchqueu, hashtable and increase
+        // counter and path
         if (!oldPlus.equals(plus) && !checkState(plus)) {
 
-            // add the move to the path
+            // add the move to the path-string
             plus.addPath(Integer.toString(car.getId()) +"plus " );
             plus.addCount();
 
-            // add the grid to the queu and the hashtable
+            // add the grid to the queu and the hashSet
             addNode(plus);
             addState(plus);
         }
@@ -96,7 +96,7 @@ public class Search {
             min.addPath(Integer.toString(car.getId()) + "min ");
             min.addCount();
 
-            // add the grid to the queu and the hashtable
+            // add the grid to the queu and the hashSet
             addNode(min);
             addState(min);
         }
@@ -136,7 +136,7 @@ public class Search {
         long timeTrialBefore = System.nanoTime();
 
         // keeps replacing the first node by all it's children
-        // while the grid doesn't match a winning grid
+        // while the grid doesn't match the solution
         while (true){
             if (checkIfOK()){
                 break;
