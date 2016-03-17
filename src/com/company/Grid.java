@@ -78,259 +78,6 @@ public class Grid {
         return previous;
     }
 
-    // create the first grid
-    public Grid makeFirstGrid(){
-
-        // create a grid
-        Grid grid = new Grid(6,6);
-
-        // create all cars
-        Car car = new Car(true,2,3,2,1);
-        Car car2 = new Car(false, 4, 0, 2, 2);
-        Car car3 = new Car(true, 4, 1, 2, 3);
-        Car car4 = new Car(false,3,3, 3,4);
-        Car car5 = new Car(false,0,2,3,5);
-        Car car6 = new Car(true, 0,3,2,6);
-        Car car7 = new Car(false, 0, 5, 3, 7);
-        Car car8 = new Car(true, 3, 4, 2, 8);
-        Car car9 = new Car(true, 5, 4, 2, 9);
-
-        // add all cars
-        grid.addCar(car);
-        grid.addCar(car2);
-        grid.addCar(car3);
-        grid.addCar(car7);
-        grid.addCar(car5);
-        grid.addCar(car6);
-        grid.addCar(car4);
-        grid.addCar(car8);
-        grid.addCar(car9);
-
-        // print the grid
-        grid.printGrid();
-
-        // return the grid
-        return grid;
-    }
-
-    // creates second grid (works the same way as makeFirstGrid())
-    public Grid makeSecGrid(){
-        Grid grid = new Grid(6, 6);
-        Car car = new Car(true, 2, 2, 2, 1);
-        Car car2 = new Car(false, 4, 0, 2, 2);
-        Car car3 = new Car(true, 3, 0, 2, 3);
-        Car car4 = new Car(true, 0, 2, 2,4);
-        Car car5 = new Car(true, 1, 1, 2, 5);
-        Car car6 = new Car(true, 1, 3, 2, 6);
-        Car car7 = new Car(true, 3, 2, 2, 7);
-        Car car8 = new Car(false, 4, 3, 2, 8);
-        Car car9 = new Car(true, 5, 4, 2, 9);
-        Car car10 = new Car(true, 4, 4, 2, 10);
-        Car car11 = new Car(false, 2, 4, 2, 11);
-        Car car12 = new Car(false, 1, 5, 3, 12);
-        Car car13 = new Car(true, 0, 4, 2, 13);
-        grid.addCar(car);
-        grid.addCar(car2);
-        grid.addCar(car3);
-        grid.addCar(car7);
-        grid.addCar(car5);
-        grid.addCar(car6);
-        grid.addCar(car4);
-        grid.addCar(car8);
-        grid.addCar(car9);
-        grid.addCar(car10);
-        grid.addCar(car11);
-        grid.addCar(car12);
-        grid.addCar(car13);
-        System.out.println("2");
-        grid.printGrid();
-
-        return grid;
-    }
-
-    // creates third grid (works same way as makeFirstGrid())
-    public Grid makeThirdGrid(){
-        Grid grid = new Grid(6,6);
-        Car car = new Car(true,2,0,2,1);
-        Car car2 = new Car(false, 4, 0, 2, 2);
-        Car car3 = new Car(true, 3, 0, 2, 3);
-        Car car4 = new Car(false,2,2, 2,4);
-        Car car5 = new Car(true,1,1,2,5);
-        Car car6 = new Car(true, 0,1,2,6);
-        Car car7 = new Car(true, 0, 3, 3, 7);
-        Car car8 = new Car(false, 1, 3, 2, 8);
-        Car car9 = new Car(true, 1, 4, 2, 9);
-        Car car10 = new Car(false, 2, 5, 2, 10);
-        Car car11 = new Car(true, 4, 4, 2, 11);
-        Car car12 = new Car(true, 3, 3, 2, 12);
-        Car car13 = new Car(false, 4, 2, 2, 13);
-
-        grid.addCar(car);
-        grid.addCar(car2);
-        grid.addCar(car3);
-        grid.addCar(car7);
-        grid.addCar(car5);
-        grid.addCar(car6);
-        grid.addCar(car4);
-        grid.addCar(car8);
-        grid.addCar(car9);
-        grid.addCar(car10);
-        grid.addCar(car11);
-        grid.addCar(car12);
-        grid.addCar(car13);
-        grid.printGrid();
-
-        return grid;
-    }
-
-    public Grid makeFourthGrid(){
-
-        Grid grid = new Grid(9,9);
-        Car car = new Car(true,4,1,2,1);
-        Car car2 = new Car(false, 7, 0, 2, 2);
-        Car car3 = new Car(true, 6, 0, 2, 3);
-        Car car4 = new Car(false,4,0, 2,4);
-        Car car5 = new Car(true,3,0,2,5);
-        Car car6 = new Car(false, 0,0,2,6);
-        Car car7 = new Car(true, 0, 1, 3, 7);
-        Car car8 = new Car(false, 1, 3, 3, 8);
-        Car car9 = new Car(false, 4, 3, 2, 9);
-        Car car10 = new Car(false, 6, 3, 2, 10);
-        Car car11 = new Car(true, 8, 1, 3, 11);
-        Car car12 = new Car(false, 7, 4, 2, 12);
-        Car car13 = new Car(true, 6, 4, 2, 13);
-        Car car14 = new Car(true, 5, 5, 3, 14);
-        Car car15 = new Car(true, 3, 5, 3, 15);
-        Car car16 = new Car(false, 0, 5, 3, 16);
-        Car car17 = new Car(true, 1, 6, 3, 17);
-        Car car18 = new Car(false, 2, 8, 3, 18);
-        Car car19 = new Car(false, 5, 8, 3, 19);
-        Car car20 = new Car(true, 8, 7, 2, 20);
-        Car car21 = new Car(true, 8, 5, 2, 21);
-
-        grid.addCar(car);
-        grid.addCar(car2);
-        grid.addCar(car3);
-        grid.addCar(car7);
-        grid.addCar(car5);
-        grid.addCar(car6);
-        grid.addCar(car4);
-        grid.addCar(car8);
-        grid.addCar(car9);
-        grid.addCar(car10);
-        grid.addCar(car11);
-        grid.addCar(car12);
-        grid.addCar(car13);
-        grid.addCar(car14);
-        grid.addCar(car15);
-        grid.addCar(car16);
-        grid.addCar(car17);
-        grid.addCar(car18);
-        grid.addCar(car19);
-        grid.addCar(car20);
-        grid.addCar(car21);
-        grid.printGrid();
-
-        return grid;
-    }
-
-    public Grid makeAdvancedGrid(){
-
-        Grid grid = new Grid(12,12);
-        Car car = new Car(true,5,2,2,1);
-        Car car2 = new Car(true,11, 1, 2, 2);
-        Car car3 = new Car(false, 8, 2, 2, 3);
-        Car car4 = new Car(true,8,0, 2,4);
-        Car car5 = new Car(true,7,0,3,5);
-        Car car6 = new Car(true, 6,0,3,6);
-        Car car7 = new Car(false, 3, 0, 3, 7);
-        Car car8 = new Car(false, 3, 1, 3, 8);
-        Car car9 = new Car(true, 2, 0, 3, 9);
-        Car car10 = new Car(false, 0, 0, 2, 10);
-        Car car11 = new Car(true, 2, 3, 2, 11);
-        Car car12 = new Car(true, 4, 2, 3, 12);
-        Car car13 = new Car(false, 5, 4, 2, 13);
-        Car car14 = new Car(false, 6, 3, 2, 14);
-        Car car15 = new Car(true, 7, 4, 2, 15);
-        Car car16 = new Car(true, 8, 3, 3, 16);
-        Car car17 = new Car(true, 9, 3, 3, 17);
-        Car car18 = new Car(true, 11, 3, 3, 18);
-        Car car19 = new Car(false, 9,6, 3, 19);
-        Car car20 = new Car(false, 6,6, 3  , 20);
-        Car car21 = new Car(false, 5, 5, 2, 21);
-        Car car22 = new Car(false, 3, 5, 2, 22);
-        Car car23 = new Car(false, 1, 5, 2, 23);
-        Car car24 = new Car(false, 0, 6, 2, 24);
-        Car car25 = new Car(false, 2, 6, 3, 25);
-        Car car26 = new Car(true, 0,7, 3, 26);
-        Car car27 = new Car(true, 2,7, 2, 27);
-        Car car28 = new Car(true, 3,7, 2, 28);
-        Car car29 = new Car(true, 4, 7, 3, 29);
-        Car car30 = new Car(false, 6,7, 2, 30);
-        Car car31 = new Car(true, 8,7, 3, 31);
-        Car car32 = new Car(true, 9,8, 2, 32);
-        Car car33 = new Car(false, 10,9, 2, 33);
-        Car car34 = new Car(true, 11, 7, 2, 34);
-        Car car35 = new Car(false, 9, 10, 3, 35);
-        Car car36 = new Car(false, 10,11, 2, 36);
-        Car car37 = new Car(false, 8, 11, 2, 37);
-        Car car38 = new Car(true, 7, 10, 2, 38);
-        Car car39 = new Car(true, 6, 10, 2, 39);
-        Car car40 = new Car(false, 6,9, 2, 40);
-        Car car41 = new Car(true, 3, 9, 2, 41);
-        Car car42 = new Car(false, 1, 10,2, 42);
-        Car car43 = new Car(false, 1, 11,2, 43);
-        Car car44 = new Car(true, 0, 10, 2, 44);
-
-        grid.addCar(car);
-        grid.addCar(car2);
-        grid.addCar(car3);
-        grid.addCar(car4);
-        grid.addCar(car5);
-        grid.addCar(car6);
-        grid.addCar(car7);
-        grid.addCar(car8);
-        grid.addCar(car9);
-        grid.addCar(car10);
-        grid.addCar(car11);
-        grid.addCar(car12);
-        grid.addCar(car13);
-        grid.addCar(car14);
-        grid.addCar(car15);
-        grid.addCar(car16);
-        grid.addCar(car17);
-        grid.addCar(car18);
-        grid.addCar(car19);
-        grid.addCar(car20);
-        grid.addCar(car21);
-        grid.addCar(car22);
-        grid.addCar(car23);
-        grid.addCar(car24);
-        grid.addCar(car25);
-        grid.addCar(car26);
-        grid.addCar(car27);
-        grid.addCar(car28);
-        grid.addCar(car29);
-        grid.addCar(car30);
-        grid.addCar(car31);
-        grid.addCar(car32);
-        grid.addCar(car33);
-        grid.addCar(car34);
-        grid.addCar(car35);
-        grid.addCar(car36);
-        grid.addCar(car37);
-        grid.addCar(car38);
-        grid.addCar(car39);
-        grid.addCar(car40);
-        grid.addCar(car41);
-        grid.addCar(car42);
-        grid.addCar(car43);
-        grid.addCar(car44);
-        grid.printGrid();
-
-        return grid;
-
-    }
 
     // Returns a copy of a grid, by creating a new grid and copying the information in a loop
     public Grid gridCopy() {
@@ -338,7 +85,7 @@ public class Grid {
         // create a grid, wherein the previous grid can be copied
         Grid gridnew = new Grid(rows, columns);
 
-        // Copies the grid
+        // Copies the grid by looping through the grid
         for(int i = 0; i < rows; i++){
             for(int j = 0; j < columns; j++){
                 gridnew.grid[i][j] = this.grid[i][j];
@@ -351,8 +98,8 @@ public class Grid {
         // loop through all cars in list for copying
         while (this.cars[i]!=null){
             Car car = this.cars[i];
-            Car newcar = car.copyCar();
-            gridnew.cars[i] = newcar;
+            Car newCar = car.copyCar();
+            gridnew.cars[i] = newCar;
             i++;
         }
 
@@ -430,14 +177,18 @@ public class Grid {
         }
     }
 
-    /** Adds a new car to the grid, by adding the value of id to the places where the
-     * car is present in the grid. Also the car is added to the carlist of the Grid.
-     */
+    // Adds a new car to the grid, by adding the value of id to the places where the
+    // car is present in the grid. Also the car is added to the carlist of the Grid.
     public void addCar(Car car){
+
+        // get all values of the car
         int x = car.getX();
         int y = car.getY();
         int id = car.getId();
         int length = car.getLength();
+
+        // if the car is horizontal, add the car to the grid at (x,y) till (x,y+length)
+        // if the car is vertical, add the car to the grid at (x,y) till (x+length, y)
         if (car.getDirection()){
             for(int i = 0; i< length; i++){
                 grid[x][y+i] =  id;
@@ -447,52 +198,78 @@ public class Grid {
                 grid[x+i][y] = id;
             }
         }
+
+        // add car to carlist in grid
         this.cars[id]=car;
     }
 
-    /** Moves car one down or to the right (depending on the direction of the car) by
-     * removing one from the front of the car and adding one to the end of the car.
-     * Also the coordinates of the car in the car are changed and the changed car
-     * is added to the carlist in the grid.
-     */
+    // Moves car one down or to the right (depending on the direction of the car) by
+    // removing one from the front of the car and adding one to the end of the car.
+    // Also the coordinates of the car in the car are changed and the changed car
+    // is added to the carlist in the grid.
     public Grid moveCarPlus(Car car){
+
+        // get id of the car and copy the grid and car
         int id = car.getId();
         Grid gridnew = this.gridCopy();
         Car newcar = gridnew.cars[id];
+
+        // if the car is horizontal, compute a new y
         if(newcar.getDirection()){
             int newY = newcar.getY() + newcar.getLength();
+
+            // if this y is not bigger than the grid and there is not yet a car in this
+            // position, move the car by removing the front and adding to the back
             if(newY < this.getRows() && gridnew.grid[newcar.getX()][newY]==0){
                 gridnew.grid[newcar.getX()][newcar.getY()] = 0;
                 gridnew.grid[newcar.getX()][newY] = newcar.getId();
                 newcar.setY(newcar.getY()+1);
             }
+
+        // if the car is vertical, compute a new x
         } else {
             int newX = newcar.getX() + newcar.getLength();
+
+            // if this x is not bigger than the grid and there is not yet a car in this
+            // position, move the car by removing the front and adding to the back
             if(newX < this.getColumns() && gridnew.grid[newX][newcar.getY()]==0){
                 gridnew.grid[newcar.getX()][newcar.getY()] = 0;
                 gridnew.grid[newX][newcar.getY()] = newcar.getId();
                 newcar.setX(newcar.getX()+1);
             }
         }
+
+        // add this car to the carlist of the grid and return the grid
         gridnew.cars[id] = newcar;
         return gridnew;
     }
 
-    /** Moves car one up or to the left, works the same way as moveCarPlus.
-     */
+    // Moves car one up or to the left, works the same way as moveCarPlus.
     public Grid moveCarMin(Car car){
+
+        // get id of the car and copy grid and car
         int id = car.getId();
         Grid gridnew = this.gridCopy();
         Car newcar = gridnew.cars[id];
+
+        // if the car is horizontal, compute a new y
         if(newcar.getDirection()){
             int newY = newcar.getY() - 1;
+
+            // if this y isn't smaller than 0 and the position isn't filled yet, move car
+            // by removing back and adding one to the front
             if(newY >= 0 && gridnew.grid[newcar.getX()][newY]==0){
                 gridnew.grid[newcar.getX()][newcar.getY() + newcar.getLength() - 1] = 0;
                 gridnew.grid[newcar.getX()][newY] = newcar.getId();
                 newcar.setY(newY);
             }
+
+        // if the car is vertical, compute a new x
         } else  {
             int newX = newcar.getX() - 1;
+
+            // if this x isn't smaller than 0 and the position isn't filled yet, move
+            // car by removing back and adding one to the front
             if(newX >= 0 && gridnew.grid[newX][newcar.getY()]==0){
                 gridnew.grid[newcar.getX() + newcar.getLength() - 1][newcar.getY()] = 0;
                 gridnew.grid[newX][newcar.getY()] = newcar.getId();
@@ -500,18 +277,23 @@ public class Grid {
             }
         }
 
+        // add car to carlist of the new grid and return the new grid
         gridnew.cars[id] = newcar;
         return gridnew;
     }
 
-    /** Checks if the grid of two Grids are equal by looping through the array with
-     * the grid.
-     */
+    // Checks if the grid of two Grids are equal by looping through the array with the grid.
+    // There's no need to check if both grids have the same size, because they all have the
+    // same ancestors.
     public boolean equals(Grid grid1){
+
+        // get both grids and the rows and columns
         int[][] gridtwo = this.getGrid();
         int[][] gridone = grid1.getGrid();
         int rows = this.getRows();
         int columns = this.getColumns();
+
+        // loop through the grid and check if each position has the same value
         for (int i = 0; i < rows; i++){
             for (int j = 0; j < columns; j++){
                 if (gridone[i][j]!=gridtwo[i][j]){
@@ -523,9 +305,13 @@ public class Grid {
 
     }
 
-    /** Converts Grid into a string with all values of the grid. Useful as key in hashtable */
+    // Converts Grid into a string with all values of the grid. Useful as key in hashSet
     public String toString(){
+
+        // initiate gridstring
         String gridstring = "";
+
+        // retrieve all information of the grid and the grid itself
         int rows = this.getRows();
         int columns = this.getColumns();
         int[][] grid = this.getGrid();
