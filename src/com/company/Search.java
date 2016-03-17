@@ -31,15 +31,10 @@ public class Search {
 
         // gets the position of the 1 car (the red one)
         Car car = cars[1];
-        int x = car.getX();
         int y = car.getY();
 
-        // if the 1 car is at 2,4, it is positioned in front of the exit,
-        // so return true
-        if (grid.getRows() == 6 && x == 2 && y == 4) {
-            grid.printGrid();
-            return true;
-        } else if (grid.getRows() == 9 && x == 3 && y == 7){
+        // if the 1 car has y coordinate 1 place in front of the end, the solution is found
+        if (y == grid.getColumns() - 2) {
             grid.printGrid();
             return true;
         }
