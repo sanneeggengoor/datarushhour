@@ -56,8 +56,8 @@ public class Search {
         // while there is a car available, make children
         while (cars[i] != null) {
             // copy the grid and make all children with that car and that grid
-            Grid oldCopy = old.gridCopy();
-            makeChildrencar(oldCopy, cars[i]);
+            // Grid oldCopy = old.gridCopy();
+            makeChildrencar(old, cars[i]);
 
             // increase counter
             i++;
@@ -127,5 +127,28 @@ public class Search {
             return true;
         }
         return false;
+    }
+
+    public void findSolution(){
+        long timeTrialBefore = System.nanoTime();
+        while (true){
+            if (checkIfOK()){
+                break;
+            }
+
+            makeAllChildren();
+        }
+        long timeTrialAfter = System.nanoTime();
+
+        Grid good = getNode();
+        System.out.println(good.getPath());
+        System.out.println(good.getCount());
+        good.printGrid();
+        good.printPath();
+        long time1 = (timeTrialAfter - timeTrialBefore)/1000000;
+        System.out.println("Path: "+good.getPath());
+        System.out.println("Number of necessary steps: " + Integer.toString(good.getCount()));
+        System.out.println("Time (in milliseconds): " + Long.toString(time1));
+
     }
 }

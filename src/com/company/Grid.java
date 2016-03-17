@@ -13,6 +13,10 @@ package com.company;
  */
 public class Grid {
 
+    // maximum number of cars in a grid
+    private static final int MAXCAR = 20;
+
+    // all values stored in the grid
     private int rows;
     private int columns;
     private int[][] grid;
@@ -21,19 +25,45 @@ public class Grid {
     private String path;
     private int count;
 
-    /** Creates new Grid with rows rows and columns columns*/
+    // Creates new Grid with rows rows and columns columns
     public Grid(int rows, int columns){
+        // give rows and columns correct values
         this.rows = rows;
         this.columns = columns;
+
+        // create new carlist and initiate counter and path
+        cars = new Car[MAXCAR];
+        this.path = "";
+        this.count = 0;
+
+        // create new grid[][] with a given number of rows and columns
         grid = new int[rows][columns];
+
+        // fill the grid with zeroes
         for(int i = 0; i<rows; i++){
             for(int j = 0; j<columns; j++){
                 grid[i][j] = 0;
             }
         }
-        cars = new Car[20];
-        this.path = "";
-        this.count = 0;
+    }
+
+    public void printPath() {
+        Grid pathGrid = this.getPrevious();
+        if (previous != null) {
+
+            pathGrid.printPath();
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                System.out.println("exception");
+            }
+            System.out.print("steps: ");
+            System.out.println(this.getCount());
+            this.printGrid();
+
+
+    }
+
     }
 
     public Grid getPrevious(){
@@ -44,7 +74,7 @@ public class Grid {
         Grid grid = new Grid(6,6);
         Car car = new Car(true,2,3,2,1);
         Car car2 = new Car(false, 4, 0, 2, 2);
-        Car car3 = new Car(false, 3, 5, 2, 3);
+        Car car3 = new Car(true, 4, 1, 2, 3);
         Car car4 = new Car(false,3,3, 3,4);
         Car car5 = new Car(false,0,2,3,5);
         Car car6 = new Car(true, 0,3,2,6);
@@ -66,20 +96,20 @@ public class Grid {
     }
 
     public Grid makeSecGrid(){
-        Grid grid = new Grid(6,6);
-        Car car = new Car(true,2,2,2,1);
+        Grid grid = new Grid(6, 6);
+        Car car = new Car(true, 2, 2, 2, 1);
         Car car2 = new Car(false, 4, 0, 2, 2);
         Car car3 = new Car(true, 3, 0, 2, 3);
-        Car car4 = new Car(true,0,2, 2,4);
-        Car car5 = new Car(true,0,1,2,5);
-        Car car6 = new Car(true, 1,3,2,6);
+        Car car4 = new Car(true, 0, 2, 2,4);
+        Car car5 = new Car(true, 1, 1, 2, 5);
+        Car car6 = new Car(true, 1, 3, 2, 6);
         Car car7 = new Car(true, 3, 2, 2, 7);
         Car car8 = new Car(false, 4, 3, 2, 8);
         Car car9 = new Car(true, 5, 4, 2, 9);
         Car car10 = new Car(true, 4, 4, 2, 10);
         Car car11 = new Car(false, 2, 4, 2, 11);
         Car car12 = new Car(false, 1, 5, 3, 12);
-        Car car13 = new Car(true, 0, 5, 2, 13);
+        Car car13 = new Car(true, 0, 4, 2, 13);
         grid.addCar(car);
         grid.addCar(car2);
         grid.addCar(car3);
@@ -93,6 +123,7 @@ public class Grid {
         grid.addCar(car11);
         grid.addCar(car12);
         grid.addCar(car13);
+        System.out.println("2");
         grid.printGrid();
 
         return grid;
@@ -163,7 +194,14 @@ public class Grid {
     public void printGrid(){
         for (int i = 0; i< rows; i++){
             for (int j = 0; j < columns; j++){
-                System.out.print(grid[i][j]);
+                if(grid[i][j] != 0 && grid[i][j]<10) {
+                    System.out.print(grid[i][j]);
+                    System.out.print(" ");
+                } else if (grid[i][j] != 0){
+                    System.out.print(grid[i][j]);
+                } else {
+                    System.out.print("  ");
+                }
                 if (j != columns - 1){
                     System.out.print(" ");
                 } else {

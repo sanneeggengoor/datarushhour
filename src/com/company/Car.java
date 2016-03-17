@@ -20,15 +20,20 @@ public class Car {
         this.length = length;
     }
 
-    // Cars a
+    // Copies car by putting all values in a new car
     public Car copyCar(){
-        boolean directionn = this.direction;
-        int xn = this.getX();
-        int yn = this.getY();
-        int idn = this.getId();
-        int lengthn = this.getLength();
-        Car newcar = new Car(directionn, xn, yn, lengthn, idn);
-        return newcar;
+        // getting all values of old car
+        boolean directionCopy = this.direction;
+        int xCopy = this.getX();
+        int yCopy = this.getY();
+        int idCopy = this.getId();
+        int lengthCopy = this.getLength();
+
+        // creating a new car with given values
+        Car carCopy = new Car(directionCopy, xCopy, yCopy, lengthCopy, idCopy);
+
+        // return the new car
+        return carCopy;
     }
 
     public int getLength(){
@@ -47,14 +52,11 @@ public class Car {
         return id;
     }
 
-   // public Car getCar(int id){
-
-   // }
-
     public boolean getDirection(){
         return direction;
     }
 
+    // gives car new integer x, works only if x is greater than 0
     public void setX(int x){
         if(x<0) {
             this.x = 0;
@@ -63,6 +65,7 @@ public class Car {
         }
     }
 
+    // gives car new integer y, works only if y is greater than 0
     public void setY(int y){
         if(y<0) {
             this.y = 0;
