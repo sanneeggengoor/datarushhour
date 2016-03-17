@@ -26,7 +26,12 @@ public class Main {
         trial3 = new Search();
         Grid grid = new Grid(6,6);
 
-        trial.addNode(grid.makeFirstGrid());
+        Grid grid1 = grid.makeFirstGrid();
+        System.out.println("1");
+        grid1.printGrid();
+        System.out.println("1");
+
+        trial.addNode(grid1);
         trial2.addNode(grid.makeSecGrid());
         trial3.addNode(grid.makeThirdGrid());
 
@@ -37,23 +42,22 @@ public class Main {
             }
 
             trial.makeAllChildren();
-            //System.out.println("Kids gemaakt");
         }
 
         Grid good = trial.getNode();
-        System.out.println("hoi");
         System.out.println(good.getPath());
         System.out.println(good.getCount());
         good.printGrid();
-        while(true){
-            good = good.getPrevious();
-            if (good == null){
+        good.printPath();
+
+        while (true){
+            if (trial2.checkIfOK()){
                 break;
             }
-            System.out.println(good.getCount());
-            good.printGrid();
 
+            trial2.makeAllChildren();
         }
+        Grid good2 = trial2.getNode();
 
     }
 
