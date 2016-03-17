@@ -12,6 +12,7 @@ public class Main {
     private int puzzlenum;
     public Search trial;
     public Search trial2;
+    public Search trial3;
 
 
     public Main(int num) {
@@ -22,11 +23,15 @@ public class Main {
         System.out.println(puzzlenum);
         trial = new Search();
         trial2 = new Search();
+        trial3 = new Search();
         Grid grid = new Grid(6,6);
 
         trial.addNode(grid.makeFirstGrid());
         trial.findSolution();
         trial2.addNode(grid.makeSecGrid());
+        trial3.addNode(grid.makeThirdGrid());
+
+
         trial2.findSolution();
 /**
         long timeTrial1Before = System.nanoTime();

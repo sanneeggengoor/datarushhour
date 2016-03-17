@@ -128,6 +128,42 @@ public class Grid {
 
         return grid;
     }
+
+    public Grid makeThirdGrid(){
+        Grid grid = new Grid(6,6);
+        Car car = new Car(true,2,0,2,1);
+        Car car2 = new Car(false, 4, 0, 2, 2);
+        Car car3 = new Car(true, 3, 0, 2, 3);
+        Car car4 = new Car(false,2,2, 2,4);
+        Car car5 = new Car(true,1,1,2,5);
+        Car car6 = new Car(true, 0,1,2,6);
+        Car car7 = new Car(true, 0, 3, 3, 7);
+        Car car8 = new Car(false, 1, 3, 2, 8);
+        Car car9 = new Car(true, 1, 4, 2, 9);
+        Car car10 = new Car(false, 2, 5, 2, 10);
+        Car car11 = new Car(true, 4, 4, 2, 11);
+        Car car12 = new Car(true, 3, 3, 2, 12);
+        Car car13 = new Car(false, 4, 2, 2, 13);
+
+        grid.addCar(car);
+        grid.addCar(car2);
+        grid.addCar(car3);
+        grid.addCar(car7);
+        grid.addCar(car5);
+        grid.addCar(car6);
+        grid.addCar(car4);
+        grid.addCar(car8);
+        grid.addCar(car9);
+        grid.addCar(car10);
+        grid.addCar(car11);
+        grid.addCar(car12);
+        grid.addCar(car13);
+        grid.printGrid();
+
+        return grid;
+
+
+    }
     /** Returns a copy of a grid, by creating a new grid and copying the information in a loop */
     public Grid gridCopy() {
         Grid gridnew = new Grid(rows, columns);
