@@ -14,7 +14,7 @@ package com.company;
 public class Grid {
 
     // maximum number of cars in a grid
-    private static final int MAXCAR = 25;
+    private static final int MAXCAR = 50;
 
     // all values stored in the grid
     private int rows;
