@@ -14,6 +14,7 @@ public class Main {
     public Search trial2;
     public Search trial3;
     public Search trial4;
+    public Search trial5;
 
 
     public Main(int num) {
@@ -26,17 +27,21 @@ public class Main {
         trial2 = new Search();
         trial3 = new Search();
         trial4 = new Search();
+        trial5 = new Search();
         Grid grid = new Grid(6,6);
 
         trial.addNode(grid.makeFirstGrid());
         trial2.addNode(grid.makeSecGrid());
         trial3.addNode(grid.makeThirdGrid());
         trial4.addNode(grid.makeFourthGrid());
+        trial5.addNode(grid.makeAdvancedGrid());
 
-        trial.findSolution();
-        trial2.findSolution();
-        trial3.findSolution();
-        trial4.findSolution();
+
+        //trial.findSolution();
+        //trial2.findSolution();
+        //trial3.findSolution();
+        //trial4.findSolution();
+        trial5.findSolution();
 
 
 
