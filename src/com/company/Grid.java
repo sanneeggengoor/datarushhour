@@ -47,31 +47,44 @@ public class Grid {
         }
     }
 
+    // animates the path from the beginning to the solution, by recursively looping through
+    // all the states in the path
     public void printPath() {
+        // get the Grid which was the parent to the current grid
         Grid pathGrid = this.getPrevious();
+
+        // if this parent isn't the first grid, continue
         if (previous != null) {
 
+            // print all the ancestors of the current grid
             pathGrid.printPath();
+
+            // take a pause of 200 milliseconds, so every grid can be seen
             try {
                 Thread.sleep(200);
             } catch (InterruptedException e) {
                 System.out.println("exception");
             }
-            System.out.print("steps: ");
-            System.out.println(this.getCount());
+
+            // print the current step
+            System.out.println("step: " + Integer.toString(this.getCount()));
+
+            // print the grid
             this.printGrid();
-
-
-    }
-
+        }
     }
 
     public Grid getPrevious(){
         return previous;
     }
 
+    // create the first grid
     public Grid makeFirstGrid(){
+
+        // create a grid
         Grid grid = new Grid(6,6);
+
+        // create all cars
         Car car = new Car(true,2,3,2,1);
         Car car2 = new Car(false, 4, 0, 2, 2);
         Car car3 = new Car(true, 4, 1, 2, 3);
@@ -81,6 +94,8 @@ public class Grid {
         Car car7 = new Car(false, 0, 5, 3, 7);
         Car car8 = new Car(true, 3, 4, 2, 8);
         Car car9 = new Car(true, 5, 4, 2, 9);
+
+        // add all cars
         grid.addCar(car);
         grid.addCar(car2);
         grid.addCar(car3);
@@ -90,11 +105,15 @@ public class Grid {
         grid.addCar(car4);
         grid.addCar(car8);
         grid.addCar(car9);
+
+        // print the grid
         grid.printGrid();
 
+        // return the grid
         return grid;
     }
 
+    // creates second grid (works the same way as makeFirstGrid())
     public Grid makeSecGrid(){
         Grid grid = new Grid(6, 6);
         Car car = new Car(true, 2, 2, 2, 1);
@@ -129,6 +148,7 @@ public class Grid {
         return grid;
     }
 
+    // creates third grid (works same way as makeFirstGrid())
     public Grid makeThirdGrid(){
         Grid grid = new Grid(6,6);
         Car car = new Car(true,2,0,2,1);
@@ -164,41 +184,52 @@ public class Grid {
 
 
     }
-    /** Returns a copy of a grid, by creating a new grid and copying the information in a loop */
+
+    // Returns a copy of a grid, by creating a new grid and copying the information in a loop
     public Grid gridCopy() {
+
+        // create a grid, wherein the previous grid can be copied
         Grid gridnew = new Grid(rows, columns);
-        gridnew.rows = this.rows;
-        gridnew.columns = this.columns;
-        /* Copies the grid */
+
+        // Copies the grid
         for(int i = 0; i < rows; i++){
             for(int j = 0; j < columns; j++){
                 gridnew.grid[i][j] = this.grid[i][j];
             }
         }
-        /* Copies the carlist */
+
+        // initiate counter for looping through cars
         int i = 1;
+
+        // loop through all cars in list for copying
         while (this.cars[i]!=null){
             Car car = this.cars[i];
             Car newcar = car.copyCar();
             gridnew.cars[i] = newcar;
             i++;
         }
+
+        // copy values for count and path
         gridnew.count = this.count;
         gridnew.path = this.path;
+
+        // link parent to child
         setGrid(gridnew);
+
+        // return the new grid
         return gridnew;
-
-
     }
 
     public String getPath(){
         return path;
     }
 
+    // add move to pathstring
     public void addPath(String move){
         this.path = this.path + move;
     }
 
+    // link parent of current grid to "grid"
     private void setGrid(Grid grid){
         grid.previous = this;
     }
@@ -206,9 +237,11 @@ public class Grid {
     public int getCount(){
         return count;
     }
+
     public void addCount(){
         count++;
     }
+
     public Car[] getCars(){
         return cars;
     }
@@ -225,18 +258,21 @@ public class Grid {
         return columns;
     }
 
-    /** Prints the grid by looping through the grid and printing the value with spaces
-     * and a new line when at the end of a row. */
+    // Prints the grid by looping through the grid and printing the value with spaces
+    // and a new line when at the end of a row.
     public void printGrid(){
+
+        // loop through all positions on the grid by looping through rows and columns
         for (int i = 0; i< rows; i++){
             for (int j = 0; j < columns; j++){
-                if(grid[i][j] != 0 && grid[i][j]<10) {
+
+                if (grid[i][j] == 0){
+                    System.out.print("  ");
+                } else if(grid[i][j]<10) {
                     System.out.print(grid[i][j]);
                     System.out.print(" ");
-                } else if (grid[i][j] != 0){
-                    System.out.print(grid[i][j]);
                 } else {
-                    System.out.print("  ");
+                    System.out.print(grid[i][j]);
                 }
                 if (j != columns - 1){
                     System.out.print(" ");
